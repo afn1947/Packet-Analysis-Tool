@@ -11,6 +11,8 @@ PING_TYPE = "Echo (ping)"
 Filters the file and keeps all echo request and echo replays 
 file: the file containing the data
 """
+
+
 def filter(file):
     entrys = []
     temp = []
@@ -34,7 +36,11 @@ def filter(file):
         line = f.readline()
     if PING_TYPE in temp:
         w.write(temp)
-
+    return newFile
 
 if __name__ == '__main__':
+    """
+    For testing purposes. 
+    Usage: call filter with a file path an see if it prints the expected output to a file 
+    """
     filter('../Captures/Node2.txt')
