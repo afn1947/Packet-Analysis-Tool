@@ -11,7 +11,7 @@ goodList = []
 def parse(inputFile):
     #inputFile = "example.txt"
     outputFile = "test.txt"
-    print('called parse function in packet_parser.py')
+    # print('called parse function in packet_parser.py')
     L = []
     found_abstract = False
     with open(inputFile, 'r') as f:
@@ -43,6 +43,16 @@ def parse(inputFile):
 
     return goodList
 
+def parseHex(file):
+    f=open(file)
+    line = f.readline()
+    while line != "":
+        print line
+        line=f.readline()
+
+
+
+
 
 if __name__ == '__main__':
-    print(parse("example.txt"))
+    print(parse("../Captures/example.txt"))
