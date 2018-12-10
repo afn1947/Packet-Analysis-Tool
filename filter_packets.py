@@ -7,16 +7,17 @@ filter_packets.py
 PACKET_START = "No."
 PING_TYPE = "Echo (ping)"
 
-"""
-Filters the file and keeps all echo request and echo replays 
-file: the file containing the data
-"""
-
-
 def filter(file):
+    """
+    Filters the file and keeps all echo request and echo replays
+    file: the file containing the data
+    """
     entrys = []
     temp = []
-    f = open(file, 'r')
+    try:
+        f = open(file, 'r')
+    except IOError:
+        f=open(input("Enter File to Parse"),'r')
     line = f.readline()
     for i in file:
         if i.isdigit():
@@ -37,6 +38,7 @@ def filter(file):
     if PING_TYPE in temp:
         w.write(temp)
     return newFile
+
 
 if __name__ == '__main__':
     """
